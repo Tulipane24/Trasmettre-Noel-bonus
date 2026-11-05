@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Imprimables de Noël en famille</title>
+<meta name="description" content="Imprimables de Noël offerts aux lecteurs de « Transmettre Noël » : liste d’idées, étiquettes de la décoration de l’année et mots à offrir.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: a fireside page in the cover's festive red, lit by drifting candle glow; cover on one side, the ivory "gift tag" form on the other; stacks on phones */
+:root{
+  --red:#B52A3A; --red-deep:#8E2230; --red-ember:#6A1824; --gold:#D9B66A; --gold-soft:#F1DDA6;
+  --cream:#FBF5EA; --ink:#3A2A24; --ink-soft:#6B5A50; --fir:#2F6B4F; --fir-hover:#3A7D5D;
+  --ruby:#9C2433; --ruby-hover:#B52A3A; --muted:#F1D9C8; --line:#DCCBB4;
+  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body:"Lora", Georgia, "Times New Roman", serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{
+  min-height:100vh;
+  background:var(--red-deep) radial-gradient(ellipse 90% 70% at 28% 38%, #C9384A 0%, var(--red) 32%, var(--red-deep) 72%, var(--red-ember) 100%);
+  color:var(--cream); font-family:var(--body); font-size:17px; line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:max(28px, env(safe-area-inset-top, 0px)) 40px;
+}
+canvas#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:48px;align-items:center;min-height:calc(100vh - 68px)}
+.cover{justify-self:center;max-width:340px;width:100%}
+.cover img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 18px 50px rgba(60,8,16,.55),0 0 0 1px rgba(217,182,106,.55),0 0 60px rgba(241,221,166,.18)}
+.cover p{margin:14px 0 0;text-align:center;font-size:14px;color:var(--muted);font-style:italic}
+.eyebrow{font-family:var(--body);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(36px,5.2vw,56px);line-height:1.04;margin:0 0 14px;color:var(--cream);text-wrap:balance;text-shadow:0 2px 18px rgba(106,24,36,.55)}
+h1 em{font-style:italic;font-weight:500;color:var(--gold-soft)}
+.lede{margin:0 0 20px;color:var(--cream);max-width:34em}
+.inside{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:8px}
+.inside li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:baseline;color:var(--cream)}
+.inside li::before{content:"";width:10px;height:10px;border:1.5px solid var(--gold);border-radius:50%;transform:translateY(1px)}
+.inside b{font-weight:500;color:var(--gold-soft)}
+.tag{position:relative;background:var(--cream);color:var(--ink);border-radius:6px 6px 6px 6px;padding:26px 26px 22px 30px;box-shadow:0 14px 40px rgba(60,8,16,.45),inset 0 0 0 1px var(--line),inset 0 0 0 6px var(--cream),inset 0 0 0 7px rgba(217,182,106,.6)}
+.tag::before{content:"";position:absolute;left:-9px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:var(--red-deep);box-shadow:inset 0 0 0 2px var(--gold)}
+.tag h2{font-family:var(--display);font-weight:600;font-size:27px;line-height:1.15;margin:0 0 6px;color:var(--ruby);text-wrap:balance}
+.tag .sub{margin:0 0 16px;font-size:15px;color:var(--ink-soft)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:grid;gap:4px;min-width:0}
+label{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--fir)}
+input[type=text],input[type=email]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px}
+input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+button{margin-top:16px;width:100%;font:inherit;font-weight:500;font-size:17px;color:var(--cream);background:var(--fir);border:0;border-radius:4px;padding:13px 16px;cursor:pointer;transition:background .2s;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+button:hover{background:var(--fir-hover)}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button[disabled]{opacity:.7;cursor:progress}
+.privacy{margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--ink-soft)}
+.error{margin:12px 0 0;font-size:14px;color:var(--ruby)}
+.done{text-align:left}
+.done h2{color:var(--ruby)}
+.dl{display:block;margin-top:14px;text-align:center;text-decoration:none;font-weight:500;color:var(--cream);background:var(--ruby);border-radius:4px;padding:13px 16px}
+.dl:hover{background:var(--ruby-hover)}
+.dl:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.note{margin:12px 0 0;font-size:14px;color:var(--ink-soft)}
+.consent{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;margin-top:14px;font-size:14px;line-height:1.45;color:var(--ink);text-transform:none;letter-spacing:0}
+.consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--fir)}
+footer{position:relative;z-index:1;max-width:1040px;margin:28px auto 0;text-align:center;font-size:13px;color:var(--muted)}
+@media (max-width:760px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:28px;min-height:0}
+  .cover{max-width:220px}
+  .row{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){canvas#snow{display:none}}
+</style>
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+<main class="wrap">
+  <figure class="cover">
+    <img src="cover.jpg" width="520" height="780" alt="Couverture de « Transmettre Noël : le livre souvenir de Noël de toute la famille » de Clémence Aubertin">
+    <p>Un complément offert avec votre livre</p>
+  </figure>
+
+  <section>
+    <p class="eyebrow">Pour les lecteurs de « Transmettre Noël »</p>
+    <h1>Imprimables de Noël <em>en famille</em></h1>
+    <p class="lede">Six pages à imprimer chez vous et à utiliser avec votre livre, année après année.</p>
+    <ul class="inside">
+      <li><span><b>Notre liste de Noël en famille</b> : 48 idées à cocher ensemble, et une liste vierge pour les vôtres</span></li>
+      <li><span><b>Étiquettes de la décoration de l’année</b> : 16 étiquettes pour que chaque décoration transmette son histoire</span></li>
+      <li><span><b>Mots à offrir</b> : deux petits mots à glisser dans le livre quand vous l’offrez</span></li>
+    </ul>
+
+    <div class="tag">
+      <form id="form" novalidate>
+        <h2>Recevez vos imprimables</h2>
+        <p class="sub">Indiquez vos coordonnées et le téléchargement s’ouvre ici même.</p>
+        <div class="row">
+          <div class="field"><label for="nome">Prénom</label><input id="nome" name="nome" type="text" autocomplete="given-name" required maxlength="80"></div>
+          <div class="field"><label for="cognome">Nom</label><input id="cognome" name="cognome" type="text" autocomplete="family-name" required maxlength="80"></div>
+        </div>
+        <div class="field" style="margin-top:12px"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160"></div>
+        <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="consent" for="newsletter"><input id="newsletter" name="newsletter" type="checkbox"><span>Oui, je souhaite recevoir de temps en temps des nouvelles de ce livre et des prochains imprimables de Clémence Aubertin (facultatif, désinscription à tout moment).</span></label>
+        <button id="submit" type="submit">Débloquer les imprimables</button>
+        <p id="error" class="error" role="alert" hidden></p>
+        <p class="privacy">Votre nom et votre adresse e-mail servent à vous donner accès à ce téléchargement. Vous ne recevrez des nouvelles que si vous cochez la case ci-dessus. Vous pouvez demander à tout moment la suppression de vos données en répondant à l’un de nos e-mails.</p>
+      </form>
+
+      <div id="done" class="done" hidden>
+        <h2>Vos imprimables sont prêts</h2>
+        <p class="sub">Merci ! Ouvrez le PDF et imprimez-le sur papier A4 en taille réelle (100 %). Un papier cartonné est idéal pour les étiquettes et les mots à offrir.</p>
+        <a id="bonusLink" class="dl" href="#" target="_blank" rel="noopener">Ouvrir les imprimables de Noël (PDF)</a>
+        <p class="note">Enregistrez ce lien ou téléchargez le fichier : il est à vous.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Transmettre Noël · Clémence Aubertin</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('form'), done=document.getElementById('done'), err=document.getElementById('error'),
+      btn=document.getElementById('submit'), link=document.getElementById('bonusLink');
+  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function showError(t){err.textContent=t;err.hidden=false;}
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    var nome=form.nome.value.trim(), cognome=form.cognome.value.trim(), email=form.email.value.trim();
+    if(!nome||!cognome){showError('Veuillez indiquer votre prénom et votre nom.');return;}
+    if(!EMAIL.test(email)){showError('Veuillez indiquer une adresse e-mail valide, par exemple nom@exemple.fr.');return;}
+    btn.disabled=true; btn.textContent='Déblocage…';
+    fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({lang:'fr',nome:nome,cognome:cognome,email:email,newsletter:form.newsletter.checked,website:form.website.value})})
+    .then(function(r){return r.json().catch(function(){return {ok:false};});})
+    .then(function(d){
+      if(d&&d.ok&&d.bonusUrl){link.href=d.bonusUrl;form.hidden=true;done.hidden=false;link.focus();}
+      else{showError((d&&d.error)||'Nous n’avons pas pu enregistrer vos informations. Veuillez réessayer dans un instant.');}
+    })
+    .catch(function(){showError('Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.');})
+    .finally(function(){btn.disabled=false;btn.textContent='Débloquer les imprimables';});
+  });
+
+  // candle glow: warm golden motes drifting slowly upward, like light from the fireplace
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var c=document.getElementById('snow'),x=c.getContext('2d'),f=[],W,H;
+  function size(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  size();addEventListener('resize',size);
+  for(var i=0;i<46;i++)f.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.6+.8,s:Math.random()*.25+.08,d:Math.random()*.3-.15,t:Math.random()*6.283});
+  (function tick(){x.clearRect(0,0,W,H);
+    for(var i=0;i<f.length;i++){var p=f[i];p.y-=p.s;p.x+=p.d+Math.sin(p.t)*.12;p.t+=.012;if(p.y<-10){p.y=H+6;p.x=Math.random()*W;}
+      var a=.28+.22*Math.sin(p.t*2),g=x.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
+      g.addColorStop(0,'rgba(255,226,160,'+a+')');g.addColorStop(1,'rgba(255,226,160,0)');
+      x.fillStyle=g;x.beginPath();x.arc(p.x,p.y,p.r*4,0,6.283);x.fill();}
+    requestAnimationFrame(tick);})();
+})();
+</script>
+</body>
+</html>

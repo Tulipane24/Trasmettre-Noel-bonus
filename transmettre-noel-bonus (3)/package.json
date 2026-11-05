@@ -1,0 +1,9 @@
+{
+  "name": "transmettre-noel-bonus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for the Transmettre Noël bonus printables",
+  "engines": {
+    "node": ">=18"
+  }
+}
